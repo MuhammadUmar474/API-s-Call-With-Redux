@@ -19,7 +19,7 @@ export const addPatient = async (dispatch) => {
     let patient = {...store.getState().patientReducer.patient};
 
     await axios.post(
-        API_URL,
+        'https://rozatulislam-backend.herokuapp.com/patient',
       patient,
     );
     patient = {
@@ -46,7 +46,7 @@ export const addPatient = async (dispatch) => {
 export const getPatient = async (dispatch) => {
     try {
         let {data} = await axios.get(
-            API_URL,
+            'https://rozatulislam-backend.herokuapp.com/patient',
         );
         dispatch({type: GET_PATIENT, payload: data.patients});
     } catch (e) {
